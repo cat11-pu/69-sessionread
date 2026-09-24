@@ -1,0 +1,17 @@
+{
+  "max_lag": 3,
+  "clients": 2,
+  "monotonic_read_invariant": true,
+  "ops": [
+    {"op": "report", "node": "n1", "applied": 10},
+    {"op": "report", "node": "n2", "applied": 4},
+    {"op": "report", "node": "n3", "applied": 11},
+    {"op": "bind", "client": "c1", "node": "n2"}
+  ],
+  "trace": [
+    {"client": "c1", "required": 0},
+    {"client": "c1", "required": 11},
+    {"client": "c2", "required": 0},
+    {"client": "c1", "required": 11}
+  ]
+}
